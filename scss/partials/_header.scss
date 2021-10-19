@@ -1,0 +1,10 @@
+.cardContainer {
+  justify-content: space-evenly;
+}
+.articleCard {
+  max-width: 30% !important;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
