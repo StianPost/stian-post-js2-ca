@@ -9,7 +9,6 @@ import { getAPI } from './libs/apiCalls.js';
 
 const cardArray = await getAPI();
 let cardContainer = document.querySelector('.cardContainer');
-cardContainer.innerHTML = '';
 
 cardArray.forEach(({ title, summary, id, author }) => {
   cardContainer.innerHTML += `
