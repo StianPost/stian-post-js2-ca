@@ -3,6 +3,7 @@
 }
 .articleCard {
   max-width: 30% !important;
+  min-width: 200px;
   &__header {
     display: flex;
     justify-content: space-between;
