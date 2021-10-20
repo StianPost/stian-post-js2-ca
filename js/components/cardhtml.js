@@ -1,4 +1,4 @@
-export const arrayHTML = function (array, domELM) {
+export const arrayHTML = (array, domELM) => {
   array.forEach(({ title, summary, id, author }) => {
     document.querySelector(domELM).innerHTML += `
         <div class="card articleCard  mt-3 col-sm-4">

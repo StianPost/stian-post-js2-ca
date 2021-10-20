@@ -14,7 +14,6 @@ export const bookmarkStorage = function (domElm) {
   const bookmarks = document.querySelectorAll(domElm);
   bookmarks.forEach((element) => {
     element.onclick = () => {
-      console.log('hello');
       element.classList.toggle('far');
       element.classList.toggle('fas');
 

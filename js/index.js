@@ -16,6 +16,11 @@ searchBar.onkeyup = function () {
   document.querySelector('.cardContainer').innerHTML = '';
 
   let searchResults = filteringAnArray(cardArray, this.value.trim());
+  if (searchResults.length === 0) {
+    document.querySelector('.error').innerHTML = 'Sorry, no matching items';
+  } else {
+    document.querySelector('.error').innerHTML = '';
+  }
   if (this.value.trim() === ``) {
     arrayHTML(cardArray, '.cardContainer');
     return;
