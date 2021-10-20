@@ -9,3 +9,37 @@ export const getFromLocalStorage = function (key) {
     return [];
   }
 };
+
+export const bookmarkStorage = function (domElm) {
+  const bookmarks = document.querySelectorAll(domElm);
+  bookmarks.forEach((element) => {
+    element.onclick = () => {
+      console.log('hello');
+      element.classList.toggle('far');
+      element.classList.toggle('fas');
+
+      let localStorageObject = {
+        id: element.dataset.id,
+        author: element.dataset.author,
+        title: element.dataset.title,
+        summary: element.dataset.summary,
+      };
+
+      let favourites = getFromLocalStorage('favourites');
+
+      let isInStorage = favourites.find(
+        (productObject) => productObject.id === localStorageObject.id
+      );
+
+      if (isInStorage === undefined) {
+        favourites.push(localStorageObject);
+        saveToLocalStorage('favourites', favourites);
+      } else {
+        let removedElementArray = favourites.filter(
+          (productObject) => productObject.id !== localStorageObject.id
+        );
+        saveToLocalStorage('favourites', removedElementArray);
+      }
+    };
+  });
+};

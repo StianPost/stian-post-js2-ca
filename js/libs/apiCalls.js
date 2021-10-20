@@ -1,8 +1,8 @@
 import { BASE_URL } from '../configs/configs.js';
 
-export const getAPI = async () => {
+export const getAPI = async (url) => {
   try {
-    const { data } = await axios.get(`${BASE_URL}/articles`);
+    const { data } = await axios.get(url);
     return data;
   } catch (error) {}
 };

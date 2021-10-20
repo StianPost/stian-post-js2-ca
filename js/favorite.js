@@ -3,8 +3,15 @@ import {
   saveToLocalStorage,
 } from './libs/localStorageHelpers.js';
 
+import { arrayHTML } from './components/cardhtml.js';
+import { bookmarkStorage } from './libs/localStorageHelpers.js';
+
 const favArray = getFromLocalStorage('favourites');
 
-favArray.forEach((element) => {
-  console.log(element);
-});
+arrayHTML(favArray, '.cardContainer');
+if (favArray.length === 0) {
+  document.querySelector('.error').innerHTML = 'Sorry, no favorites';
+} else {
+  document.querySelector('.error').innerHTML = '';
+}
+bookmarkStorage('.fa-bookmark');

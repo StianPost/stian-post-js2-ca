@@ -1,0 +1,26 @@
+.cardContainer {
+  justify-content: space-between;
+}
+.articleCard {
+  max-width: 32% !important;
+  min-width: 200px;
+  @include boxShade(rgba(0, 0, 0, 0.208));
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.searchField {
+  display: flex;
+  justify-content: center;
+  &__bar {
+    width: 60%;
+    height: 40px;
+    padding: 15px;
+    @include boxShade($border-color);
+    border: 0.5px solid $box-shade;
+    border-radius: 5px;
+    min-width: 280px;
+  }
+}
