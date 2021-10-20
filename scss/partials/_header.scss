@@ -1,3 +1,4 @@
 .heading {
   @include boxShade($box-shade);
+  margin-bottom: 25px;
 }
