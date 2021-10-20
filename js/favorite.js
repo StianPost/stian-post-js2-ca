@@ -15,3 +15,11 @@ if (favArray.length === 0) {
   document.querySelector('.error').innerHTML = '';
 }
 bookmarkStorage('.fa-bookmark');
+
+const clearFavs = document.querySelector('#clearFavs');
+
+clearFavs.onclick = () => {
+  localStorage.clear('favourites');
+  document.querySelector('.error').innerHTML = 'Sorry, no favorites';
+  document.querySelector('.cardContainer').innerHTML = '';
+};
