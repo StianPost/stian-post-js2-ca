@@ -45,4 +45,8 @@
   border-radius: 5px;
   min-width: 280px;
 }
+
+.bookmarkItem:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=styles.css.map */

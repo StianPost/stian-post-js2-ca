@@ -5,7 +5,7 @@ export const arrayHTML = (array, domELM) => {
             <div class="card-body articleCard__body">
                 <div class="articleCard__header">
                     <h5 class="card-title">${title}</h5>
-                    <i class="far fa-bookmark"
+                    <i class="far fa-bookmark bookmarkItem"
                         data-id="${id}" 
                         data-author="${author}" 
                         data-title="${title}"

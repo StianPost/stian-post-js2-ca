@@ -25,6 +25,5 @@ searchBar.onkeyup = function () {
     arrayHTML(cardArray, '.cardContainer');
     return;
   }
-
   arrayHTML(searchResults, '.cardContainer');
 };
