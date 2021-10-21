@@ -35,6 +35,13 @@ import { getUser } from '../libs/localStorageHelpers.js';
       </div>
     </div>
   </nav>`;
+    const logout = document.querySelector('.logoutBtn');
+    if (logout !== null) {
+      logout.onclick = function () {
+        localStorage.clear();
+        window.location.href = './index.html';
+      };
+    }
   } else {
     document.querySelector('.header').innerHTML = `
     
@@ -90,45 +97,38 @@ import { getUser } from '../libs/localStorageHelpers.js';
         </form>
     </div>
   </div>`;
-  }
+    const login = document.querySelector('.loginBtn');
+    const modal = document.querySelector('.modal');
+    login.onclick = () => {
+      modal.style.display = 'block';
+    };
+    const closeModal = document.querySelector('.fa-times');
+    closeModal.onclick = () => {
+      modal.style.display = 'none';
+    };
+    const loginForm = document.querySelector('.modal__form');
+    loginForm.onsubmit = async (event) => {
+      event.preventDefault();
 
-  const logout = document.querySelector('.logoutBtn');
-  if (logout !== null) {
-    logout.onclick = function () {
-      localStorage.clear();
-      window.location.href = './index.html';
+      const password = document.querySelector('#formPassword');
+      const email = document.querySelector('#formEmail');
+
+      if (testText(password.value, 3) && testEmailAddress(email.value)) {
+        try {
+          const { data } = await axios.post(`${BASE_URL}/auth/local`, {
+            identifier: email.value,
+            password: password.value,
+          });
+          console.log(data);
+          localStorage.setItem('jwt', data.jwt);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          // window.location.href = './favorites.html';
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        console.log('you did wrong');
+      }
     };
   }
-  const login = document.querySelector('.loginBtn');
-  const modal = document.querySelector('.modal');
-  login.onclick = () => {
-    modal.style.display = 'block';
-  };
-  const closeModal = document.querySelector('.fa-times');
-  closeModal.onclick = () => {
-    modal.style.display = 'none';
-  };
-  const loginForm = document.querySelector('.modal__form');
-  loginForm.onsubmit = async (event) => {
-    event.preventDefault();
-
-    const password = document.querySelector('#formPassword');
-    const email = document.querySelector('#formEmail');
-
-    if (testText(password.value, 3) && testEmailAddress(email.value)) {
-      try {
-        const { data } = await axios.post(`${BASE_URL}/auth/local`, {
-          identifier: email.value,
-          password: password.value,
-        });
-        localStorage.setItem('jwt', data.jwt);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        window.location.href = './favorites.html';
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      console.log('you did wrong');
-    }
-  };
 })();
