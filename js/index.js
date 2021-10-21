@@ -23,7 +23,9 @@ searchBar.onkeyup = function () {
   }
   if (this.value.trim() === ``) {
     arrayHTML(cardArray, '.cardContainer');
+    bookmarkStorage('.fa-bookmark');
     return;
   }
   arrayHTML(searchResults, '.cardContainer');
+  bookmarkStorage('.fa-bookmark');
 };

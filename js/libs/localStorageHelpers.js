@@ -10,6 +10,10 @@ export const getFromLocalStorage = function (key) {
   }
 };
 
+export const getUser = function (userKey) {
+  return JSON.parse(localStorage.getItem(userKey));
+};
+
 export const bookmarkStorage = function (domElm) {
   const bookmarks = document.querySelectorAll(domElm);
   bookmarks.forEach((element) => {
