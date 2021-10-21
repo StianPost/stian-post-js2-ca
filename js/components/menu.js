@@ -28,6 +28,9 @@ import { getUser } from '../libs/localStorageHelpers.js';
           <li class="nav-item">
             <a class="nav-link" href="./favorites.html">Favs</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./edit.html">Edit</a>
+          </li>
         </ul>
         <div class="d-flex">
           <button class="btn btn-outline-danger logoutBtn">Logout</button>
@@ -122,12 +125,12 @@ import { getUser } from '../libs/localStorageHelpers.js';
           console.log(data);
           localStorage.setItem('jwt', data.jwt);
           localStorage.setItem('user', JSON.stringify(data.user));
-          // window.location.href = './favorites.html';
+          window.location.href = './edits.html';
         } catch (error) {
-          console.log(error);
+          console.log('Wrong username or password');
         }
       } else {
-        console.log('you did wrong');
+        console.log('Incorrect Credentials');
       }
     };
   }
