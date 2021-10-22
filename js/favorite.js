@@ -9,11 +9,13 @@ import { bookmarkStorage } from './libs/localStorageHelpers.js';
 const favArray = getFromLocalStorage('favourites');
 
 arrayHTML(favArray, '.cardContainer');
+
 if (favArray.length === 0) {
   document.querySelector('.error').innerHTML = 'Sorry, no favorites';
 } else {
   document.querySelector('.error').innerHTML = '';
 }
+
 bookmarkStorage('.fa-bookmark');
 
 const clearFavs = document.querySelector('#clearFavs');

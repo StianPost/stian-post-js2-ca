@@ -1,0 +1,8 @@
+.tableDash {
+  @include boxShade($box-shade);
+  border-radius: 5px;
+}
+
+.fa-trash-alt:hover {
+  cursor: pointer;
+}

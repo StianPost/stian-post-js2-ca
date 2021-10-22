@@ -82,7 +82,9 @@ let modalInfo = `
 
     const logBtn = document.querySelector('.logBTN');
     logBtn.innerHTML = `<button class="btn btn-outline-success loginBtn">Login</button>`;
-    document.querySelector('.loggedItem').innerHTML = '';
+    document.querySelectorAll('.loggedItem').forEach((elm) => {
+      elm.innerHTML = '';
+    });
 
     const login = document.querySelector('.loginBtn');
     const modal = document.querySelector('.modal');

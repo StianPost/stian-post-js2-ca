@@ -83,4 +83,14 @@
 .bookmarkItem:hover {
   cursor: pointer;
 }
+
+.tableDash {
+  -webkit-box-shadow: 5px 10px 7px rgba(0, 0, 0, 0.208);
+          box-shadow: 5px 10px 7px rgba(0, 0, 0, 0.208);
+  border-radius: 5px;
+}
+
+.fa-trash-alt:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=styles.css.map */
