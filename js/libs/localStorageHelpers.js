@@ -31,7 +31,7 @@ export const bookmarkStorage = function (domElm) {
       let favourites = getFromLocalStorage('favourites');
 
       let isInStorage = favourites.find(
-        (productObject) => productObject.id === localStorageObject.id
+        (favObject) => favObject.id === localStorageObject.id
       );
 
       if (isInStorage === undefined) {
@@ -39,7 +39,7 @@ export const bookmarkStorage = function (domElm) {
         saveToLocalStorage('favourites', favourites);
       } else {
         let removedElementArray = favourites.filter(
-          (productObject) => productObject.id !== localStorageObject.id
+          (favObject) => favObject.id !== localStorageObject.id
         );
         saveToLocalStorage('favourites', removedElementArray);
       }
