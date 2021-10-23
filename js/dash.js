@@ -1,6 +1,6 @@
 import { BASE_URL, headers } from './configs/configs.js';
 
-async function getCarsAndDeleteACar() {
+async function editArticles() {
   let { data } = await axios.get(`${BASE_URL}/articles`);
 
   let table = document.querySelector('.tableBody');
@@ -14,14 +14,12 @@ async function getCarsAndDeleteACar() {
 					<a href="editArticle.html?id=${id}"><i class="far fa-edit"></i></></a>
 				</td>
 				<td>
-					<i class="far fa-trash-alt" data-id=${id}></i>
+					<i class="far deleteBtn fa-trash-alt" data-id=${id}></i>
 				</td>
 			</tr>`;
   });
 
-  // Add a click event on each of the buttons
-  let deleteBtn = document.querySelectorAll('.fa-trash-alt');
-  console.log(deleteButtons);
+  let deleteBtn = document.querySelectorAll('.deleteBtn');
 
   deleteBtn.forEach((deleteButton) => {
     deleteButton.onclick = async () => {
@@ -30,9 +28,9 @@ async function getCarsAndDeleteACar() {
         headers
       );
 
-      getCarsAndDeleteACar();
+      editArticles();
     };
   });
 }
 
-getCarsAndDeleteACar();
+editArticles();
