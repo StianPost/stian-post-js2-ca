@@ -29,8 +29,17 @@
           <div class="col-sm-12">
             <h1>Edit News Article</h1>
           </div>
-          <div class="row">
-            <form class="form">
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="loading">
+              <img src="/img/Double Ring-1s-200px (1).gif" alt="loading gif" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <form class="form createForm shadeNrad">
               <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" />
@@ -45,11 +54,15 @@
                   ></textarea>
                 </div>
               </div>
-              <br />
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary mt-3">
                 Update article
               </button>
             </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 mx-auto">
+            <div class="alert"></div>
           </div>
         </div>
       </div>
@@ -61,6 +74,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="/js/libs/routeGuard.js"></script>
     <script type="module" src="./js/components/menu.js"></script>
     <script type="module" src="./js/editArticle.js"></script>
   </body>

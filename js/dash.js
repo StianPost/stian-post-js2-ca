@@ -7,7 +7,8 @@ async function editArticles() {
   table.innerHTML = '';
 
   data.forEach(({ id, title }) => {
-    table.innerHTML += `<tr>
+    table.innerHTML += `
+      <tr>
 				<th scope="row">${id}</th>
 				<td>${title}</td>
 				<td>
@@ -20,15 +21,16 @@ async function editArticles() {
   });
 
   let deleteBtn = document.querySelectorAll('.deleteBtn');
-
   deleteBtn.forEach((deleteButton) => {
     deleteButton.onclick = async () => {
-      let { data } = await axios.delete(
-        `${BASE_URL}/articles/${deleteButton.dataset.id}`,
-        headers
-      );
-
-      editArticles();
+      let deleteArticle = confirm('are you sure you want to delete?');
+      if (deleteArticle) {
+        let { data } = await axios.delete(
+          `${BASE_URL}/articles/${deleteButton.dataset.id}`,
+          headers
+        );
+        editArticles();
+      }
     };
   });
 }

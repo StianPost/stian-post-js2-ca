@@ -1,8 +1,8 @@
-export const saveToLocalStorage = function (key, value) {
+export const saveToLocalStorage = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-export const getFromLocalStorage = function (key) {
+export const getFromLocalStorage = (key) => {
   if (localStorage.getItem(key) !== null) {
     return JSON.parse(localStorage.getItem(key));
   } else {
@@ -10,11 +10,11 @@ export const getFromLocalStorage = function (key) {
   }
 };
 
-export const getUser = function (userKey) {
+export const getUser = (userKey) => {
   return JSON.parse(localStorage.getItem(userKey));
 };
 
-export const bookmarkStorage = function (domElm) {
+export const bookmarkStorage = (domElm) => {
   const bookmarks = document.querySelectorAll(domElm);
   bookmarks.forEach((element) => {
     element.onclick = () => {

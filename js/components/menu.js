@@ -2,6 +2,7 @@ import { testEmailAddress, testText } from '../libs/validation.js';
 
 import { BASE_URL } from '../configs/configs.js';
 import { getUser } from '../libs/localStorageHelpers.js';
+import alert from './alert.js';
 
 let menu = `
 <nav class="navbar navbar-expand-lg navbar-light bg-light heading">
@@ -56,9 +57,7 @@ let modalInfo = `
             <input type="password" class="form-control" id="formPassword">
             <div class="form-text">We will also share your password</div>
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="alert">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -68,8 +67,11 @@ let modalInfo = `
 (function () {
   if (getUser('user')) {
     document.querySelector('.header').innerHTML = menu;
+
     const logBtn = document.querySelector('.logBTN');
+
     logBtn.innerHTML = `<button class="btn btn-outline-danger logoutBtn">Logout</button>`;
+
     const logout = document.querySelector('.logoutBtn');
     if (logout) {
       logout.onclick = function () {
@@ -114,10 +116,10 @@ let modalInfo = `
           localStorage.setItem('user', JSON.stringify(data.user));
           window.location.href = './edit.html';
         } catch (error) {
-          console.log('Wrong username or password');
+          alert('alert-danger', 'wrong password or username');
         }
       } else {
-        console.log('Incorrect Credentials');
+        alert('alert-danger', 'incorrect credentials');
       }
     };
   }

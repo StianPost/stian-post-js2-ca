@@ -8,7 +8,7 @@ const cardArray = await getAPI(`${BASE_URL}/articles`);
 if (cardArray) {
   document.querySelector('.loading').innerHTML = '';
 }
-arrayHTML(cardArray, '.cardContainer');
+arrayHTML(cardArray, '.cardContainer', 'far');
 bookmarkStorage('.fa-bookmark');
 
 const searchBar = document.querySelector('#searchBar');
@@ -22,10 +22,10 @@ searchBar.onkeyup = function () {
     document.querySelector('.error').innerHTML = '';
   }
   if (this.value.trim() === ``) {
-    arrayHTML(cardArray, '.cardContainer');
+    arrayHTML(cardArray, '.cardContainer', 'far');
     bookmarkStorage('.fa-bookmark');
     return;
   }
-  arrayHTML(searchResults, '.cardContainer');
+  arrayHTML(searchResults, '.cardContainer', 'far');
   bookmarkStorage('.fa-bookmark');
 };

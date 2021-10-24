@@ -1,8 +1,7 @@
 import { BASE_URL, headers } from './configs/configs.js';
 
 import { getAPI } from './libs/apiCalls.js';
-
-// import alert from './components/alert.js';
+import alert from './components/alert.js';
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -19,17 +18,19 @@ summary.value = articleArray.summary;
 
 form.onsubmit = async function (event) {
   event.preventDefault();
-  let updatedCar = {
+  let updatedArticle = {
     title: title.value,
     summary: summary.value,
   };
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/articles/${id}`,
+      updatedArticle,
+      headers
+    );
 
-  const response = await axios.put(
-    `${BASE_URL}/articles/${id}`,
-    updatedCar,
-    headers
-  );
-
-  console.log(response);
-  console.log('Ey it worked');
+    alert('alert-success', 'Edit successful');
+  } catch (error) {
+    alert('alert-danger', 'Something went wrong');
+  }
 };

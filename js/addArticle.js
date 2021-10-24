@@ -1,4 +1,4 @@
-// import alert from './components/alert.js';
+import alert from './components/alert.js';
 import { BASE_URL, headers } from './configs/configs.js';
 
 let articleForm = document.querySelector('.form');
@@ -21,14 +21,12 @@ articleForm.onsubmit = async function (event) {
       newArticle,
       headers
     );
-    // alert('alert-success', 'Car has been created successfully');
+    alert('alert-success', 'Article has been created');
+
     title.value = '';
     summary.value = '';
     author.value = '';
-
-    console.log(response);
   } catch (error) {
-    console.log(error);
-    // alert('alert-danger', 'There was an error creating your car');
+    alert('alert-danger', 'An error occured, article not created');
   }
 };
