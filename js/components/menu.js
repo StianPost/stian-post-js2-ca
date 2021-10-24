@@ -30,7 +30,7 @@ let menu = `
         <a class="nav-link" href="./edit.html">Edit</a>
       </li>
       <li class="nav-item loggedItem">
-        <a class="nav-link" href="./create.html">Create</a>
+        <a class="nav-link" href="./createArticle.html">Create</a>
       </li>
     </ul>
     <div class="d-flex logBTN">

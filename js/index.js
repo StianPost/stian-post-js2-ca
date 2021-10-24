@@ -5,7 +5,9 @@ import { filteringAnArray } from './libs/filterArray.js';
 import { getAPI } from './libs/apiCalls.js';
 
 const cardArray = await getAPI(`${BASE_URL}/articles`);
-
+if (cardArray) {
+  document.querySelector('.loading').innerHTML = '';
+}
 arrayHTML(cardArray, '.cardContainer');
 bookmarkStorage('.fa-bookmark');
 
